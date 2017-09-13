@@ -1,0 +1,44 @@
+/**
+ * External dependencies for the build script
+ * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:external_dependencies
+ */
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName: 'spring-boot-jpa'
+	version: '0.1.0'
+}
+
+/**
+ * Repositories
+ * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:repositories
+ */
+repositories {
+    mavenCentral()
+    maven {
+    	url('https://repository.jboss.org/nexus/content/repositories/releases')
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+/**
+ * Declare dependencies
+ * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:how_to_declare_your_dependencies
+ */
+dependencies {
+    compile('org.springframework.boot:spring-boot-jpa')
+    compile('com.h2database.h2')
+    testCompile('junit:junit')
+}
