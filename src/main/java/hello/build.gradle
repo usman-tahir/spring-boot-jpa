@@ -19,6 +19,10 @@ jar {
 	version = '0.1.0'
 }
 
+bootRepackage {
+	mainClass = 'hello.Application'
+}
+
 /**
  * Repositories
  * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:repositories
